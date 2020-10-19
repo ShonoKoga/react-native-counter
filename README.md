@@ -1,21 +1,7 @@
 # react-native-counter
 
-This is Counter by  React Native Modules
+This is Counter by  React Native Modules by [react-native-bob](https://github.com/callstack/react-native-bob)
 
-## Installation
-
-```sh
-npm install react-native-counter
-```
-
-## Usage
-
-```js
-import Counter from "react-native-counter";
-
-// ...
-
-const result = await Counter.multiply(3, 7);
 ```
 
 ## Contributing
