@@ -1,9 +1,20 @@
-import { NativeModules } from 'react-native';
+import { NativeModules, NativeEventEmitter } from 'react-native';
 
-type CounterType = {
+type TryNativeModulesType = {
   multiply(a: number, b: number): Promise<number>;
 };
 
-const { Counter } = NativeModules;
+type Counter = {
+  initialCount: number;
+  getCount: (callback: (count: number) => void) => void;
+  decrement: () => Promise<string>;
+  increment: () => void;
+};
 
-export default Counter as CounterType;
+const { TryNativeModules, Counter } = NativeModules;
+const counterEventEmitter = new NativeEventEmitter(Counter);
+
+export default {
+  TryNativeModules: TryNativeModules as TryNativeModulesType,
+  Counter: { ...(Counter as Counter), EventEmitter: counterEventEmitter },
+};
